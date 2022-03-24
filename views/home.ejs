@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time Series Analysis</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container bg-warning p-2 text-dark bg-opacity-10">
+        <header class="d-flex py-3 justify-content-md-between border-bottom border-danger border-1">
+            <!-- justify-content-center -->
+            <p class="text-start fs-3 fw-light">CS 587</p>
+            <p class="text-center fs-3 fw-light">Time Series Analysis</p>
+            <p class="text-end fs-3 fw-light">Group 3</p>
+        </header>
+    </div>
+
+    <div class="container">
+        <p class="fst-italic text-center fs-4 mt-4 border-bottom border-warning">Analysis Graphs of SLOC/day for first
+            15 days of
+            April (1-15) :
+            Programmer 23
+        </p>
+    </div>
+    <div class="container mt-3 card">
+        <img class="img-fluid rounded mx-auto d-block mt-4" alt="Responsive image" src="<%= processedData1_ma %> ">
+        <p class="fst-italic text-center">1.1 - The graph for first 15 days of April (1-15) || Moving average of
+            SLOC/day
+        </p>
+        <p class="fst-italic text-center">X-Axis represents number of days and Y-Axis represents SLOC/day</p>
+        <p class="fst-italic text-center"> Min value: <%= t1_min %> || Max value: <%= t1_max %>
+        </p>
+        <p class="fst-italic text-center"> Mean Value: <%= t1_mean %> || Standard Deviation: <%= t1_std %>
+        </p>
+
+        <img class="img-fluid rounded mx-auto d-block mt-4" alt="Responsive image" src="<%= processedData1_org %> ">
+        <p class="fst-italic text-center">1.2 - Purple Line: Original Data || Blue Line: Moving Average</p>
+
+        <img class="img-fluid rounded mx-auto d-block mt-4" alt="Responsive image"
+            src="<%= processedData1_org_lwma %> ">
+        <p class="fst-italic text-center">1.3 - Purple Line: Original Data || Blue Line: Moving Average || Violet Line:
+            Linear
+            Weightwed Moving Average</p>
+
+        <img class="img-fluid rounded mx-auto d-block mt-4" alt="Responsive image" src="<%= t1_ms_smoothing %> ">
+        <p class="fst-italic text-center">1.4 - Smoothing the Moving Average (ma) of the SLOC/day for dates 1-15</p>
+
+        <img class="img-fluid rounded mx-auto d-block mt-4" alt="Responsive image" src="<%= t1_lwma_smoothing %> ">
+        <p class="fst-italic text-center">1.5 - Smoothing the Linear Weighted Moving Average (lwma) of the SLOC/day for
+            dates
+            1-15</p>
+
+        <img class="img-fluid rounded mx-auto d-block mt-4" alt="Responsive image" src="<%= t1_noise_removed %> ">
+        <p class="fst-italic text-center">1.6 - Noise removed from the dataset of SLOC/day for dates 1-15</p>
+
+        <img class="img-fluid rounded mx-auto d-block mt-4" alt="Responsive image" src="<%= sinWave %> ">
+        <p class="fst-italic text-center">1.7 - Sin Wave for dataset of SLOC/day for dates 1-15</p>
+
+        <div class="row justify-content-center mb-3">
+            <div class="w-25">
+                <ul class="list-group fst-italic text-center">
+                    <li class="list-group-item">Max Entropy for first 15 days:</li>
+                    <% for(let item of t1_ARMaxEntropy) { %>
+                        <li class="list-group-item">
+                            <%= item %>
+                        </li>
+                        <% } %>
+                </ul>
+            </div>
+            <div class="w-25">
+                <ul class="list-group fst-italic text-center">
+                    <li class="list-group-item">Least Square for first 15 days:</li>
+                    <% for(let item of t1_ARLeastSquare) { %>
+                        <li class="list-group-item">
+                            <%= item %>
+                        </li>
+                        <% } %>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+    <div class="container">
+        <p class="fst-italic text-center fs-4 mt-4 border-bottom border-warning">Analysis Graphs of SLOC/day for the
+            next 15 days
+            of April (16-30) : Programmer
+            23
+        </p>
+    </div>
+    <div class="container mt-3 card">
+        <img class="img-fluid rounded mx-auto d-block mt-4" alt="Responsive image" src="<%= processedData2_ma %> ">
+        <p class="fst-italic text-center">2.1 The graph for next 15 days of April (16-30) || Moving average of SLOC/day
+        </p>
+        <p class="fst-italic text-center">X-Axis represents number of days and Y-Axis represents SLOC/day</p>
+        <p class="fst-italic text-center"> Min value: <%= t2_min %> || Max value: <%= t2_max %>
+        </p>
+        <p class="fst-italic text-center"> Mean Value: <%= t2_mean %> || Standard Deviation: <%= t2_std %>
+        </p>
+
+        <img class="img-fluid rounded mx-auto d-block mt-4" alt="Responsive image" src="<%= processedData2_org %> ">
+        <p class="fst-italic text-center">2.2 - Purple Line: Original Data || Blue Line: Moving Average</p>
+
+        <img class="img-fluid rounded mx-auto d-block mt-4" alt="Responsive image"
+            src="<%= processedData1_org_lwma %> ">
+        <p class="fst-italic text-center">2.3 - Purple Line: Original Data || Blue Line: Moving Average || Violet Line:
+            Linear
+            Weightwed Moving Average</p>
+
+        <img class="img-fluid rounded mx-auto d-block mt-4" alt="Responsive image" src="<%= t2_ms_smoothing %> ">
+        <p class="fst-italic text-center">2.4 - Smoothing the Moving Average (ma) of the SLOC/day for dates 16-30</p>
+
+        <img class="img-fluid rounded mx-auto d-block mt-4" alt="Responsive image" src="<%= t2_lwma_smoothing %> ">
+        <p class="fst-italic text-center">2.5 - Smoothing the Linear Weighted Moving Average (lwma) of the SLOC/day for
+            dates 16-30</p>
+
+        <img class="img-fluid rounded mx-auto d-block mt-4" alt="Responsive image" src="<%= t2_noise_removed %> ">
+        <p class="fst-italic text-center">2.6 - Noise removed from the dataset of SLOC/day for dates 16-30</p>
+
+        <img class="img-fluid rounded mx-auto d-block mt-4" alt="Responsive image" src="<%= sinWave %> ">
+        <p class="fst-italic text-center">2.7 - Sin Wave for dataset of SLOC/day for dates 16-30</p>
+        <div class="row justify-content-center mb-3">
+            <div class="w-25">
+                <ul class="list-group fst-italic text-center">
+                    <li class="list-group-item">Max Entropy for next 15 days:</li>
+                    <% for(let item of t2_ARMaxEntropy) { %>
+                        <li class="list-group-item">
+                            <%= item %>
+                        </li>
+                        <% } %>
+                </ul>
+            </div>
+            <div class="w-25">
+                <ul class="list-group fst-italic text-center">
+                    <li class="list-group-item">Least Square for next 15 days:</li>
+                    <% for(let item of t2_ARLeastSquare) { %>
+                        <li class="list-group-item">
+                            <%= item %>
+                        </li>
+                        <% } %>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="container border-bottom border-danger">
+        <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+            <!-- accessing flexbox through bootstrap -->
+            <p class="col-md-4 mb-0 text-muted fs-4 fw-light">CS 587</p>
+            <a href="/"
+                class="fs-4 fw-light col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+                Time Series Analysis
+            </a>
+            <p class="nav col-md-4 justify-content-end text-muted fs-4 fw-light">Group 3</p>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+        integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+        integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
