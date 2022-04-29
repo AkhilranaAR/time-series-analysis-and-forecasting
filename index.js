@@ -20,6 +20,16 @@ const writeDataToFile = async (num, input1, input2) => {
     });
 };
 
+// const writeDataToFile2 = async (num, input1, input2) => {
+//     for (let i = 0; i < 100; i++) {
+//         fs.writeFile("parsedData", `Array ${num} : ${input1} Array 2 : ${input2}`, err => {
+//             if (err) {
+//                 console.log("Error in writing data to inputDatafile");
+//             }
+//         });
+//     }
+// };
+
 let data1 = [];
 let data2 = [];
 
@@ -71,6 +81,9 @@ for (let i = 0; i < data1.length; i++) {
 console.log(beforeProcessedDataArray1);
 // let toString1 = beforeProcessedDataArray1.toString();
 writeDataToFile(1, data1, data2);
+
+// writeDataToFile2(1, data1, data2);
+
 
 let beforeProcessedDataArray2 = [];
 for (let i = 0; i < data2.length; i++) {
