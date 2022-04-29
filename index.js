@@ -6,6 +6,7 @@ const path = require("path");
 const { times } = require("underscore");
 const app = express();
 
+
 app.use(express.static(path.join(__dirname, "public")));
 
 app.set("view engine", "ejs");
@@ -46,8 +47,6 @@ for (let i = 15; i < 30; i++) {
 //     input: process.stdin,
 //     output: process.stdout
 // });
-
-
 // rl.question('Enter the SLOC/day for 15 days: ', async (answer) => {
 //     // TODO: Log the answer in a database
 //     // console.log(`Thank you for your valuable feedback: ${answer}`);
@@ -63,7 +62,7 @@ for (let i = 15; i < 30; i++) {
 let beforeProcessedDataArray1 = [];
 for (let i = 0; i < data1.length; i++) {
     // beforeProcessedDataArray1.push(data1[i][1]);
-    const event = new Date(2018, 8, i + 1, 14, 39, 7);
+    const event = new Date(2021, 3, i + 1, 14, 39, 7);
     beforeProcessedDataArray1.push({
         "date": event.toDateString(),
         "value": data1[i][1]
@@ -76,7 +75,7 @@ writeDataToFile(1, data1, data2);
 let beforeProcessedDataArray2 = [];
 for (let i = 0; i < data2.length; i++) {
     // beforeProcessedDataArray1.push(data1[i][1]);
-    const event = new Date(2018, 8, i + 1, 14, 39, 7);
+    const event = new Date(2021, 3, i + 1, 14, 39, 7);
     beforeProcessedDataArray2.push({
         "date": event.toDateString(),
         "value": data2[i][1]
