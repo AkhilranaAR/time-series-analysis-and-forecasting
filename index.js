@@ -83,6 +83,26 @@ console.log(beforeProcessedDataArray1);
 writeDataToFile(1, data1, data2);
 
 // writeDataToFile2(1, data1, data2);
+let newArray4 = [];
+for (let j = 0; j < 250; j++) {
+    for (let i = 0; i < 15; i++) {
+        // data.push({
+        //     "date": event.toDateString(),
+        //     "value": Math.floor(Math.random() * 10)
+        // });
+        // let newArray = [];
+        newArray4.push(i + 1);
+        newArray4.push(Math.floor(Math.random() * 100) + 200);
+        // data1.push(newArray);
+        fs.writeFile("parsedData", `${newArray4}`, err => {
+            if (err) {
+                console.log("Error in writing data to inputDatafile");
+            }
+        });
+    }
+}
+
+console.log(newArray4);
 
 
 let beforeProcessedDataArray2 = [];
